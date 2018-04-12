@@ -8,8 +8,8 @@ Add this to your application's `shard.yml`:
 
 ```yaml
 dependencies:
-  awesome_print:
-    github: [your-github-name]/awesome_print
+  awesome_print.cr:
+    github: [evandrojr]/awesome_print.cr
 ```
 
 ## Usage
