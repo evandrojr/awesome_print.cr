@@ -2,5 +2,7 @@ require "./awesome_print/*"
 
 # TODO: Write documentation for `AwesomePrint`
 module AwesomePrint
-  # TODO: Put your code here
+  def ap(v)
+    puts v.inspect
+  end  
 end
