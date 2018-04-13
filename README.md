@@ -1,6 +1,6 @@
 # awesome_print
 
-awesome_print (https://github.com/awesome-print/awesome_print) for crystal-lang, under development. Right now it does only:
+It dreams about becomming [awesome_print](https://github.com/awesome-print/awesome_print) for crystal-lang, under development. Right now it just is:
 
 ```
 ap some_var === puts some_var.inspect
