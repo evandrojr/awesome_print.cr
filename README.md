@@ -1,3 +1,6 @@
+
+[![Travis CI Build Status](https://travis-ci.org/evandrojr/awesome_print.cr.svg)](https://travis-ci.org/evandrojr/awesome_print.cr)
+
 # awesome_print
 
 It dreams about becoming [awesome_print](https://github.com/awesome-print/awesome_print) for crystal-lang, under development. Right now it is just this:
