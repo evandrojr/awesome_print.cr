@@ -5,3 +5,4 @@ script:
   - crystal spec
   - crystal tool format spec src --check
   - shards build
+  
