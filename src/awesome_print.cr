@@ -8,7 +8,6 @@ def self.ap(v)
 end
 
 class Formater
-
   MAX_ELEMENTS_PER_ROW = 7
 
   def self.array_formater(vars)
@@ -20,7 +19,7 @@ class Formater
       if i < vars.size
         s = s + ", "
       end
-      if i % MAX_ELEMENTS_PER_ROW == 0 && i < vars.size 
+      if i % MAX_ELEMENTS_PER_ROW == 0 && i < vars.size
         s += "\n"
       end
     }
