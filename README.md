@@ -3,11 +3,22 @@
 
 # awesome_print
 
-It dreams about becoming [awesome_print](https://github.com/awesome-print/awesome_print) for crystal-lang, under development. Right now it is just this:
+It dreams about becoming [awesome_print](https://github.com/awesome-print/awesome_print) for crystal-lang.
 
 ```
-ap some_var === puts some_var.inspect
+ap some_var
 ```
+
+It supports Int32, String, Char, Array, Range, and Hash.
+
+Formated array example:
+
+```
+[100, 101, 102, 103, 104, 105, 106, 
+ 107, 108, 109, 110, 111, 112, 113, 
+ 114, 115]
+```
+
 
 ## Installation
 
