@@ -4,6 +4,10 @@ version: 0.1.2
 authors:
   - Evandro Junior <evandrojr@gmail.com>
 
+# dependencies:
+#   ncurses:
+#     github: agatan/ncurses.cr
+
 crystal: 0.24.2
 
 license: MIT
