@@ -2,7 +2,6 @@ require "./spec_helper"
 require "ncurses"
 
 describe AwesomePrint do
-
   it "Print a integer" do
     a = 100
     r = ap a
@@ -52,12 +51,8 @@ describe AwesomePrint do
   end
 
   it "Print a hash" do
-    a = [{"one" => 1, "two" => 2}, {"one" => 1, "two" => 2}] 
+    a = [{"one" => 1, "two" => 2}, {"one" => 1, "two" => 2}]
     r = ap a
     r.should eq "[{\"one\" => 1, \"two\" => 2}, {\"one\" => 1, \"two\" => 2}]"
   end
-
-  
-  
-
 end

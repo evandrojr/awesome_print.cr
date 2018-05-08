@@ -1,15 +1,12 @@
 require "./awesome_print/*"
 
-
 def self.ap(v)
   r = Formater.selector(v)
   print r
   r
 end
 
-
 class Formater
-  
   MAX_ELEMENTS_PER_ROW = 7
 
   def self.selector(v)
@@ -21,22 +18,21 @@ class Formater
       r = Formater.char(v)
     else
       r = v
-    end  
-    return r  
-  end  
+    end
+    return r
+  end
 
   def self.integer(v)
     return v
-  end  
+  end
 
   def self.string(v)
     return "\"#{v}\""
-  end  
+  end
 
   def self.char(v)
     return "'#{v}'"
-  end  
-
+  end
 
   def self.array(vars)
     i = 0
@@ -53,6 +49,5 @@ class Formater
     }
     s += "]"
     return s
-
   end
 end
