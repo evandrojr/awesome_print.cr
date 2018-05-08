@@ -1,5 +1,4 @@
 require "./spec_helper"
-require "ncurses"
 
 describe AwesomePrint do
   it "Print a integer" do
