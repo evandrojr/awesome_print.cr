@@ -8,33 +8,34 @@ def self.ap(v)
 end
 
 module AwesomePrint
-  class Formater
+  module Formater
+    extend self
     class_property coloring : Bool = true
 
     COLORS = %i(black red green)
 
     MAX_ELEMENTS_PER_ROW = 7
 
-    def self.selector(v)
+    def selector(v)
       case v
       when Array
-        Formater.array(v)
+        array(v)
       when String
-        Formater.string(v)
+        string(v)
       when Char
-        Formater.char(v)
+        char(v)
       when Int
-        Formater.integer(v)
+        integer(v)
       when Float
-        Formater.float(v)
+        float(v)
       when Symbol
-        Formater.symbol(v)
+        symbol(v)
       else
         v
       end
     end
 
-    def self.integer(v)
+    def integer(v)
       if coloring
         return v.colorize(:magenta)
       else
@@ -42,7 +43,7 @@ module AwesomePrint
       end
     end
 
-    def self.float(v)
+    def float(v)
       if coloring
         return v.colorize(:red)
       else
@@ -50,7 +51,7 @@ module AwesomePrint
       end
     end
 
-    def self.string(v)
+    def string(v)
       if coloring
         return "\"#{v}\"".colorize(:green)
       else
@@ -58,7 +59,7 @@ module AwesomePrint
       end
     end
 
-    def self.char(v)
+    def char(v)
       if coloring
         return "'#{v}'".colorize(:yellow)
       else
@@ -66,7 +67,7 @@ module AwesomePrint
       end
     end
 
-    def self.symbol(v)
+    def symbol(v)
       if coloring
         return ":#{v}".colorize(:blue)
       else
@@ -74,7 +75,7 @@ module AwesomePrint
       end
     end
 
-    def self.array(vars)
+    def array(vars)
       i = 0
       String::Builder.build do |str|
         str << "["
