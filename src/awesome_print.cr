@@ -38,41 +38,36 @@ module AwesomePrint
     def integer(v)
       if coloring
         return v.colorize(:magenta)
-      else
-        return v
       end
+      v
     end
 
     def float(v)
       if coloring
         return v.colorize(:red)
-      else
-        return v
       end
+      v
     end
 
     def string(v)
       if coloring
         return "\"#{v}\"".colorize(:green)
-      else
-        return "\"#{v}\""
       end
+      "\"#{v}\""
     end
 
     def char(v)
       if coloring
         return "'#{v}'".colorize(:yellow)
-      else
-        return "'#{v}'"
       end
+      "'#{v}'"
     end
 
     def symbol(v)
       if coloring
         return ":#{v}".colorize(:blue)
-      else
-        return ":#{v}"
       end
+      ":#{v}"
     end
 
     def array(vars)
