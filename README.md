@@ -9,7 +9,12 @@ It dreams about becoming [awesome_print](https://github.com/awesome-print/awesom
 ap some_var
 ```
 
-It supports Int32, String, Char, Array, Range, Symbol and Hash.
+## Benchmark
+
+![alt Benchmark](https://raw.githubusercontent.com/evandrojr/awesome_print.cr/master/benchmark.png)
+
+
+It supports Integers, Floats, String, Char, Array, Range, Symbol and Hash.
 
 Formated array example:
 
