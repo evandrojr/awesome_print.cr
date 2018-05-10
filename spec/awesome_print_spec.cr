@@ -2,12 +2,10 @@ require "./spec_helper"
 
 COLORS = %i(black red green)
 
-
 describe AwesomePrint do
-  
   Spec.before_each {
     Formater.coloring = false
-  } 
+  }
 
   it "Print a integer" do
     a = 100
@@ -20,7 +18,7 @@ describe AwesomePrint do
     r = ap a
     r.should eq "\"String\""
     # Formater.coloring = true
-    # r = ap a 
+    # r = ap a
     # r.should eq "\"String\""
   end
 
@@ -68,11 +66,11 @@ describe AwesomePrint do
 
   it "print colored" do
     Formater.coloring = true
-    data_types = ["string color", 1,2,3,4, 'Z', 1.437643, 133.5e10] + COLORS
+    data_types = ["string color", 1, 2, 3, 4, 'Z', 1.437643, 133.5e10] + COLORS
 
     puts "Benchmark:"
     puts
-    puts "awesome_print's ap vs .inspect" 
+    puts "awesome_print's ap vs .inspect"
     puts
     puts "data_types.inspect:"
     puts data_types.inspect
@@ -81,6 +79,5 @@ describe AwesomePrint do
     puts "ap data_types"
     ap data_types
     puts "(That is what I call an awesome print!)"
-
-  end  
+  end
 end
