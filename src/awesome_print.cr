@@ -76,19 +76,16 @@ module AwesomePrint
 
     def self.array(vars)
       i = 0
-      s = "["
-      vars.each { |v|
-        s = s + selector(v).to_s
-        i = i + 1
-        if i < vars.size
-          s = s + ", "
+      String::Builder.build do |str|
+        str << "["
+        vars.each do |v|
+          str << selector(v).to_s
+          i += 1
+          str << ", " if i < vars.size
+          str << "\n " if i % MAX_ELEMENTS_PER_ROW == 0 && i < vars.size
         end
-        if i % MAX_ELEMENTS_PER_ROW == 0 && i < vars.size
-          s += "\n "
-        end
-      }
-      s += "]"
-      return s
+        str << "]"
+      end
     end
   end
 end
