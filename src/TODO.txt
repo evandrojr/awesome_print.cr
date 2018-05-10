@@ -1,0 +1,11 @@
+DOING:
+
+TODO:
+
+test that shows the output of all datype also create crazy data structures
+tests checks for the return of each datatype
+make ap do not return the color code
+hash containing datatype => colors
+output Class 
+
+DONE:

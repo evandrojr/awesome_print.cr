@@ -1,0 +1,1 @@
+2018-05-10: Added colors for some data types and support for Symbol

@@ -1,6 +1,8 @@
 require "spec"
 require "../src/awesome_print"
 
+include AwesomePrint
+
 class Document
   @id : Int32
   @name : String
