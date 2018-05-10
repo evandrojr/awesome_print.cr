@@ -16,22 +16,22 @@ module AwesomePrint
     MAX_ELEMENTS_PER_ROW = 7
 
     def self.selector(v)
-      if v.is_a? Array
-        r = Formater.array(v)
-      elsif v.is_a? String
-        r = Formater.string(v)
-      elsif v.is_a? Char
-        r = Formater.char(v)
-      elsif v.is_a? Int
-        r = Formater.integer(v)
-      elsif v.is_a? Float
-        r = Formater.float(v)
-      elsif v.is_a? Symbol
-        r = Formater.symbol(v)
+      case v
+      when Array
+        Formater.array(v)
+      when String
+        Formater.string(v)
+      when Char
+        Formater.char(v)
+      when Int
+        Formater.integer(v)
+      when Float
+        Formater.float(v)
+      when Symbol
+        Formater.symbol(v)
       else
-        r = v
+        v
       end
-      return r
     end
 
     def self.integer(v)
