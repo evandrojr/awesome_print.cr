@@ -63,4 +63,4 @@ ap some_var
 ## Contributors
 
 - [evandrojr](https://github.com/evandrojr) Evandro Junior - creator, maintainer
-- [hugoabonizio](https://github.com/hugoabonizio) Hugo Abonizio - developer, manager of quality assurance
+- [hugoabonizio](https://github.com/hugoabonizio) Hugo Abonizio - developer, major helper in quality assurance
