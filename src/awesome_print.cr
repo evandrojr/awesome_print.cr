@@ -8,87 +8,80 @@ def self.ap(v)
 end
 
 module AwesomePrint
-  class Formater
+  module Formater
+    extend self
     class_property coloring : Bool = true
 
     COLORS = %i(black red green)
 
     MAX_ELEMENTS_PER_ROW = 7
 
-    def self.selector(v)
-      if v.is_a? Array
-        r = Formater.array(v)
-      elsif v.is_a? String
-        r = Formater.string(v)
-      elsif v.is_a? Char
-        r = Formater.char(v)
-      elsif v.is_a? Int
-        r = Formater.integer(v)
-      elsif v.is_a? Float
-        r = Formater.float(v)
-      elsif v.is_a? Symbol
-        r = Formater.symbol(v)
+    def selector(v)
+      case v
+      when Array
+        array(v)
+      when String
+        string(v)
+      when Char
+        char(v)
+      when Int
+        integer(v)
+      when Float
+        float(v)
+      when Symbol
+        symbol(v)
       else
-        r = v
+        v
       end
-      return r
     end
 
-    def self.integer(v)
+    def integer(v)
       if coloring
         return v.colorize(:magenta)
-      else
-        return v
       end
+      v
     end
 
-    def self.float(v)
+    def float(v)
       if coloring
         return v.colorize(:red)
-      else
-        return v
       end
+      v
     end
 
-    def self.string(v)
+    def string(v)
       if coloring
         return "\"#{v}\"".colorize(:green)
-      else
-        return "\"#{v}\""
       end
+      "\"#{v}\""
     end
 
-    def self.char(v)
+    def char(v)
       if coloring
         return "'#{v}'".colorize(:yellow)
-      else
-        return "'#{v}'"
       end
+      "'#{v}'"
     end
 
-    def self.symbol(v)
+    def symbol(v)
       if coloring
         return ":#{v}".colorize(:blue)
-      else
-        return ":#{v}"
       end
+      ":#{v}"
     end
 
-    def self.array(vars)
+    def array(vars)
       i = 0
-      s = "["
-      vars.each { |v|
-        s = s + selector(v).to_s
-        i = i + 1
-        if i < vars.size
-          s = s + ", "
+      String::Builder.build do |str|
+        str << "["
+        vars.each do |v|
+          str << selector(v).to_s
+          i += 1
+          str << ", " if i < vars.size
+          str << "\n " if i % MAX_ELEMENTS_PER_ROW == 0 && i < vars.size
         end
-        if i % MAX_ELEMENTS_PER_ROW == 0 && i < vars.size
-          s += "\n "
-        end
-      }
-      s += "]"
-      return s
+        str << "]"
+      end
     end
   end
 end
