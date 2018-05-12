@@ -34,13 +34,13 @@ describe AwesomePrint do
     r.should eq "[\"100\", \"101\", \"102\", \"103\", \"104\", \"105\", \"106\", \n \"107\", \"108\", \"109\", \"110\", \"111\", \"112\", \"113\", \n \"114\", \"115\"]"
   end
 
-  it "Print a float" do
+  it "prints a float" do
     a = 100.5/3
     r = ap a
     r.should eq 33.5
   end
 
-  it "Print a range" do
+  it "prints a range" do
     a = 3..5
     r = ap a
     r.should eq 3..5
@@ -64,7 +64,11 @@ describe AwesomePrint do
     r.should eq "[{\"one\" => 1, \"two\" => 2}, {\"one\" => 1, \"two\" => 2}]"
   end
 
-  it "print colored" do
+  it "loops colors keys" do 
+    ap Formater.colors.keys
+  end   
+
+  it "prints colored" do
     Formater.coloring = true
     data_types = ["String color is green", "Char is yellow", 'a', 'Z', 1, 2, 3, 4, 1.437643, 133.5e10, SYMBOLS, INTEGERS]
     data_types = data_types + SYMBOLS + INTEGERS
