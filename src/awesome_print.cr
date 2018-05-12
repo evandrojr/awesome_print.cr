@@ -14,12 +14,35 @@ module AwesomePrint
 
     MAX_ELEMENTS_PER_ROW = 7
 
+    # macro create_painters(varible, rules)
+    #   def {{variable(varible, rules)}}
+    #     {{puts variable}}
+    #     {{puts rules}}
+    #   end
+    # end
+
+    
+    class_property rules = {
+      String: {format: "\"\#{v}\"", color: :green}, 
+      Float: {format: "\#{v}", color: :red},
+    }
+
+    # macro define_method(name, variable, rules)
+    #   def {{name(variable, rules)}}
+    #     {{puts variable}}  
+    #     {{puts rules[:format]}}
+    #   end
+    # end
+    
+    
+
     def selector(v)
+
       case v
       when Array
         array(v)
       when String
-        string(v)
+        define_method("string", v, rules[:String] )
       when Char
         char(v)
       when Int
@@ -43,10 +66,10 @@ module AwesomePrint
       v
     end
 
-    def string(v)
-      return "\"#{v}\"".colorize(:green) if coloring
-      "\"#{v}\""
-    end
+    # def string(v)
+    #   return "\"#{v}\"".colorize(:green) if coloring
+    #   "\"#{v}\""
+    # end
 
     def char(v)
       return "'#{v}'".colorize(:yellow) if coloring
