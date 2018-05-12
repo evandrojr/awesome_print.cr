@@ -66,7 +66,7 @@ describe AwesomePrint do
 
   it "print colored" do
     Formater.coloring = true
-    data_types = ["String color is green", "Char is yellow", 'a', 'Z', 1, 2, 3, 4, 1.437643, 133.5e10]
+    data_types = ["String color is green", "Char is yellow", 'a', 'Z', 1, 2, 3, 4, 1.437643, 133.5e10, SYMBOLS, INTEGERS]
     data_types = data_types + SYMBOLS + INTEGERS
     puts "\n\n"
     puts "Benchmark:"
