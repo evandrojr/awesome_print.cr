@@ -12,8 +12,6 @@ module AwesomePrint
     extend self
     class_property coloring : Bool = true
 
-    COLORS = %i(black red green)
-
     MAX_ELEMENTS_PER_ROW = 7
 
     def selector(v)
@@ -36,37 +34,27 @@ module AwesomePrint
     end
 
     def integer(v)
-      if coloring
-        return v.colorize(:magenta)
-      end
+      return v.colorize(:magenta) if coloring
       v
     end
 
     def float(v)
-      if coloring
-        return v.colorize(:red)
-      end
+      return v.colorize(:red) if coloring
       v
     end
 
     def string(v)
-      if coloring
-        return "\"#{v}\"".colorize(:green)
-      end
+      return "\"#{v}\"".colorize(:green) if coloring
       "\"#{v}\""
     end
 
     def char(v)
-      if coloring
-        return "'#{v}'".colorize(:yellow)
-      end
+      return "'#{v}'".colorize(:yellow) if coloring
       "'#{v}'"
     end
 
     def symbol(v)
-      if coloring
-        return ":#{v}".colorize(:blue)
-      end
+      return ":#{v}".colorize(:blue) if coloring
       ":#{v}"
     end
 
