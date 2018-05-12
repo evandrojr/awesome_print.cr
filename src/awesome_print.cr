@@ -11,6 +11,10 @@ module AwesomePrint
   module Formater
     extend self
     class_property coloring : Bool = true
+    class_property rules = {
+      String: {format: "\"\#{v}\"", color: :green},
+      Float:  {format: "\#{v}", color: :red},
+    }
 
     MAX_ELEMENTS_PER_ROW = 7
 
