@@ -31,14 +31,19 @@ module AwesomePrint
       Float: {format: "\#{v}", color: :red},
     }
 
-    # macro define_method(name, variable, rules)
-    #   def {{name(variable, rules)}}
-    #     {{puts variable}}  
-    #     {{puts rules[:format]}}
-    #   end
-    # end
+    macro define_method(name, variable)
+      def formatador{{name, variable}}
+
+      # rules = {
+      #   String: {format: "\"\#{v}\"", color: :green}, 
+      #   Float: {format: "\#{v}", color: :red},
+      # }
+
+        puts {{variable}}  
+      end
+    end
     
-    
+    define_method(string, v )
 
     def selector(v)
 
@@ -46,7 +51,7 @@ module AwesomePrint
       when Array
         array(v)
       when String
-        define_method("string", v, rules[:String] )
+          string(v)
       when Char
         char(v)
       when Int
