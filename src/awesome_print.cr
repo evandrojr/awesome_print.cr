@@ -11,55 +11,40 @@ module AwesomePrint
   module Formater
     extend self
     class_property coloring : Bool = true
-    class_property rules = {
-      String: {format: "\"\#{v}\"", color: :green},
-      Float:  {format: "\#{v}", color: :red},
-    }
-
     MAX_ELEMENTS_PER_ROW = 7
+
+    def generic_formater(data_type : Symbol, v)
+      rules = {
+        String: {format: ->{ "\"#{v}\"" }, color: :green},
+        Int:    {format: ->{ v }, color: :magenta},
+        Float:  {format: ->{ v }, color: :red},
+        Char:   {format: ->{ "'#{v}'" }, color: :yellow},
+        Symbol: {format: ->{ ":#{v}" }, color: :blue},
+      }
+      if (coloring)
+        (rules[data_type][:format].call).colorize.fore(rules[data_type][:color])
+      else
+        rules[data_type][:format].call
+      end
+    end
 
     def selector(v)
       case v
       when Array
         array(v)
       when String
-        string(v)
+        generic_formater(:String, v)
       when Char
-        char(v)
+        generic_formater(:Char, v)
       when Int
-        integer(v)
+        generic_formater(:Int, v)
       when Float
-        float(v)
+        generic_formater(:Float, v)
       when Symbol
-        symbol(v)
+        generic_formater(:Symbol, v)
       else
         v
       end
-    end
-
-    def integer(v)
-      return v.colorize(:magenta) if coloring
-      v
-    end
-
-    def float(v)
-      return v.colorize(:red) if coloring
-      v
-    end
-
-    def string(v)
-      return "\"#{v}\"".colorize(:green) if coloring
-      "\"#{v}\""
-    end
-
-    def char(v)
-      return "'#{v}'".colorize(:yellow) if coloring
-      "'#{v}'"
-    end
-
-    def symbol(v)
-      return ":#{v}".colorize(:blue) if coloring
-      ":#{v}"
     end
 
     def array(vars)

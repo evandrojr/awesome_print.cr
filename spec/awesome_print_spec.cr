@@ -64,9 +64,9 @@ describe AwesomePrint do
     r.should eq "[{\"one\" => 1, \"two\" => 2}, {\"one\" => 1, \"two\" => 2}]"
   end
 
-  it "loops rules keys" do
-    ap Formater.rules.keys
-  end
+  # it "loops rules keys" do
+  #   ap Formater.rules.keys
+  # end
 
   it "prints colored" do
     Formater.coloring = true
