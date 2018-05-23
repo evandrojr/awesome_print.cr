@@ -2,7 +2,7 @@ require "./awesome_print/*"
 require "colorize"
 
 def self.ap(v)
-  r = ::Formater.selector(v)
+  r = AwesomePrint::Formater.selector(v)
   puts r
   r
 end
