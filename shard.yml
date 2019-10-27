@@ -1,9 +1,9 @@
 name: awesome_print
-version: 0.1.6
+version: 0.1.7
 
 authors:
   - Evandro Junior <evandrojr@gmail.com>
 
-crystal: 0.24.2
+crystal: 0.31.1
 
 license: MIT

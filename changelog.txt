@@ -1,1 +1,2 @@
+2019-10-27: Fixed published shard
 2018-05-10: Added colors for some data types and support for Symbol
